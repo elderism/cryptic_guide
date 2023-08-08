@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <link rel="stylesheet" href="../cryptic_guide.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&family=Roboto+Slab&display=swap" rel="stylesheet">
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+  </head>
+  <body>
+
+  <div class='sidenav'>
+    <h2>Cryptics</h2>
+
+
+    <h3>Intro</h3>
+      <div class='navi_link' onclick="load('intro')">Cryptic crosswords</div>
+
+    <h3>Key ideas</h3>
+      <div class='navi_link' onclick="load('charades')">Charades</div>
+      <div class='navi_link' onclick="load('letterselection')">Letter selection</div>
+      <div class='navi_link' onclick="load('letteroperations')">Letter operations</div> 
+      <div class='navi_link' onclick="load('positionalindicators')">Positional indicators</div>   
+
+    <h3>Common clue types</h3>
+      <div class='navi_link' onclick="load('anagrams')">Anagrams</div>
+      <div class='navi_link' onclick="load('hiddens')">Hiddens</div>
+      <div class='navi_link' onclick="load('acrostics')">Acrostics</div>
+      <div class='navi_link' onclick="load('homophones')">Homophones</div>
+      <div class='navi_link' onclick="load('ddefs')">Double definitions</div>
+
+    <h3>Advanced clue types</h3>
+      <div class='navi_link' onclick="load('andlits')">&lit</div>
+      <div class='navi_link' onclick="load('liftandseparate')">Lift and separate</div>
+      <div class='navi_link' onclick="load('spoonerisms')">Spoonerisms</div>
+      <div class='navi_link' onclick="load('cycling')">Cycling</div>
+      <div class='navi_link' onclick="load('lettershifting')">Letter shifting</div>
+      <div class='navi_link' onclick="load('swapulation')">Swapulation</div>
+      <div class='navi_link' onclick="load('cdefs')">Cryptic definitions</div>
+      <div class='navi_link' onclick="load('tdefs')">Triple definition & variants</div>
+      <div class='navi_link' onclick="load('revenge')">Reverse engineering (revenge)</div>
+      <div class='navi_link' onclick="load('letterbanks')">Letterbanks</div>
+      <div class='navi_link' onclick="load('transformations')">Transformations</div>
+      <div class='navi_link' onclick="load('originalclues')">Original clues</div>
+
+    <div class='author'>Guide by Elder.<br> Find me on <a class='clue_attribution' href='https://www.twitch.tv/elderism'>twitch</a> or <a class='clue_attribution' href='https://discord.gg/ncM2WUfuQh'>discord</a> (Elder#7821).</div>
+  </div>
+
+  <div id='intro' class='page main'>
+      <div class='flow'>
+
+       <h1>Cryptic crosswords</h1>
+
+       <p>Cryptic crosswords are a type of crossword where every clue is a word puzzle. To solve them, you need to know a few rules.</p>
+
+       <p>A list of cryptic puzzles aimed at beginners can be found <a class='clue_attribution' href='https://www.elderism.co.uk/guide/beginnerpuzzles.html'>here</a>.</p>
+
+       <p>Most clues can be divided into Definition + Wordplay.</p>
+
+       <p>These clues are structured as follows:</p>
+
+        <p>
+            <img src='screenshots/intro001.png' width='450px'>
+            <div class='attribution'>(from <a href='https://liaricryptics.blogspot.com/2021/07/for-butter.html' class='clue_attribution'>For Butter by Liari</a>)</div>
+        </p>
+
+        <p>The <span class='blue'>definition</span> is a synonym or description of the solution.</p>
+
+        <p>The <span class='red'>wordplay</span> is a puzzle that leads you to the solution independently from the definition.</p>
+
+        <p>The <span class='purple'>enumeration</span> tells you how many letters the solution has.</p>
+
+        <p>The <span class='green'>surface</span> refers to the whole clue.</p>
+
+        <p>There are multiple types of wordplay. In this example, the wordplay is an anagram &mdash; LOW is an anagram of OWL.</p>
+
+        <p>
+          <img src='screenshots/intro002.png' width='500px'>
+        </p> 
+
+        <p>
+          The <span class='orange'>anagram indicator</span> tells you to look for an anagram. Here, the idea is to think about letters "flying around" to rearrange themselves.
+        </p>
+
+        <p>
+          The <span class='red'>fodder</span> is the set of letters used in the anagram. The meaning of the words in the fodder doesn't matter. 
+        </p>
+
+        <p>
+          To solve this clue, you need to:
+          <ul>
+            <li>Identify the clue type (anagram)</li>
+            <li>Identify the definition, anagram indicator, and fodder</li>
+            <li>Solve the anagram</li>
+            <li>Check your anagram is consistent with the definition</li>
+          </ul>
+        </p>
+
+        <p>Solving the wordplay is called parsing.</p>
+
+        <p>Careful: the meaning of the surface is often misleading. Low-flying bird is <u>not</u> the definition of an owl!</p>
+
+        <p>The definition can be on either side of the surface but is never in the middle. Here's an example where the definition is on the left:</p>
+        
+        <p>
+            <img src='screenshots/intro003.png' width='550px'>
+            <div class='attribution'>(from <a href='https://www.theguardian.com/crosswords/quiptic/965' class='clue_attribution'>Guardian Quiptic 965 by Matilda</a>)</div>
+        </p> 
+
+        <p>
+          Here, "my" is understood to mean goodness in the sense of an exclamation: oh my! oh goodness! Punctuation in the surface can often be ignored.
+        </p>
+
+        <p>There can also be connecting words between the definition and the wordplay.</p>
+
+        <p>
+          <img src='screenshots/intro004.png' width='600px'>
+          <div class='attribution'>(from <a href='https://www.theguardian.com/crosswords/quiptic/988' class='clue_attribution'>Guardian Quiptic 988 by Matilda</a>)</div>
+        </p> 
+
+        <p>
+          The connecting words can be ignored, although with experience you may find they help you identify which side is the definition.
+        </p>
+      </div>
+  </div>
+
+  <div id='charades' class='page main'>
+      <div class='flow'>
+
+        <h1>Charades</h1>
+
+        <p>
+          A charade constructs the solution from smaller pieces (elements), like how you might mime out a word syllable by syllable in the party game of the same name.
+        </p>
+
+        <p>
+          This idea of combining different pieces is essential in most cryptic clues.
+        </p>
+        
+        <p>
+          <img src='screenshots/charades001.png' width='600px'>
+          <div class='attribution'>(from <a href='https://mpcryptics.blogspot.com/2020/07/cryptic-5.html' class='clue_attribution'>Cryptic 5 by MentalPlayground</a>)</div>
+        </p> 
+
+        <p>Charades can have connector words that describe how the elements of the charade are linked together.</p>
+
+        <p>Above, for example, ASH is placed "by" ORE to create ASHORE.</p>
+
+        <p>Sometimes, words that look like connectors will actually be charade elements themselves. For example:</p>
+
+        <p>
+          <img src='screenshots/charades002.png' width='400px'>
+          <div class='attribution'>(from <a href='https://www.theguardian.com/crosswords/quiptic/1160' class='clue_attribution'>Guardian Quiptic 1,160 by Carpathian</a>)</div>
+        </p> 
+
+        <p>
+           Here, Juliet is J from the NATO (phonetic) alphabet. Kiss is X because a kiss can be represented as an X in writing. The word "in" is not an indicator or a connector in this clue &mdash; instead, it appears as itself within the solution!
+        </p>
+
+        <p>
+          Charades are often combined with the operations presented in the next two sections. Homophones, letter selection, and anagrams can also be used as charade elements.
+        </p>
+
+      </div>
+  </div>
+
+  <div id='letterselection' class='page main'>
+    <div class='flow'>
+        <h1>Letter selection</h1>
+
+        <p>
+          Letter selection prompts the solver to select letters from words in the surface according to a letter selection indicator.
+        </p>
+
+        <p>
+          There are several common types.
+        </p>
+
+        <h2>First letter selection</h2>
+
+        <p>
+            The first letter(s) of one or multiple words are selected.
+        </p>
+
+        <p>
+          <img src='screenshots/letterselection001.png' width='400px'>
+          <div class='attribution'>(from <a href='https://www.theguardian.com/crosswords/quiptic/1160' class='clue_attribution'>Guardian Quiptic 1,160 by Carpathian</a>)</div>
+        </p> 
+
+        <p>
+          <img src='screenshots/letterselection002.png' width='600px'>
+          <div class='attribution'>(from <a href='https://www.theguardian.com/crosswords/quiptic/1052' class='clue_attribution'>Guardian Quiptic 1,052 by Anto</a>)</div>
+        </p> 
+
+        <h2>Last letter selection</h2>
+
+        <p>
+            The last letter(s) of one or multiple words are selected.
+        </p>
+
+        <p>
+          <img src='screenshots/letterselection003.png' width='500px'>
+          <div class='attribution'>(from <a href='https://www.theguardian.com/crosswords/quiptic/1157' class='clue_attribution'>Guardian Quiptic 1,157 by Pan</a>)</div>
+        </p> 
+
+        <h2>Middle letter selection</h2>
+        
+        <p>
+          One or multiple letters may be selected in each case.
+        </p>
+
+        <p>
+          <img src='screenshots/letterselection004.png' width='500px'>
+          <div class='attribution'>(from <a href='https://www.theguardian.com/crosswords/quiptic/1129' class='clue_attribution'>Guardian Quiptic 1,129 by Anto</a>)</div>
+        </p> 
+
+
+        <p>
+          <img src='screenshots/letterselection005.png' width='700px'>
+          <div class='attribution'>(from <a href='https://www.theguardian.com/crosswords/quiptic/1038' class='clue_attribution'>Guardian Quiptic 1,038 by Anto</a>)</div>
+        </p> 
+
+        <p>
+          The number of letters selected from the middle of a word can vary, but the letters will always be selected from exactly the centre, leaving the same number of letters unused on either side. 
+        </p>
+
+        <h2>Edge letter selection</h2>
+
+        <p>
+          The first and last letters of one or multiple words are selected.
+        </p>
+
+        <p>
+          <img src='screenshots/letterselection006.png' width='550px'>
+          <div class='attribution'>(from <a href='https://www.theguardian.com/crosswords/quiptic/1089' class='clue_attribution'>Guardian Quiptic 1,089 by Anto</a>)</div>
+        </p>
+
+        <p>
+          Edge letter selection indicators vary wildly and might reference ideas such as emptying words out, the extremes of a word, the boundaries of a word, the clothes of a word, and so on. 
+        </p>
+
+        <p>
+          <img src='screenshots/letterselection007.png' width='500px'>
+          <div class='attribution'>(from <a href='https://www.theguardian.com/crosswords/quiptic/1106' class='clue_attribution'>Guardian Quiptic 1,106 by Anto</a>)</div>
+        </p>  
+
+        <p>
+          In the above example, "decentralised" is understood in the sense of removing the centre (de-centralised).
+        </p>
+
+        <h2>Letter sequence selection</h2>
+
+        <p>
+          A sequence of letters can also be selected. This usually involves taking every other letter &mdash; either the odd letters or the evens.
+        </p>
+
+        <p>
+          <img src='screenshots/letterselection008.png' width='400px'>
+          <div class='attribution'>(from <a href='https://www.theguardian.com/crosswords/quiptic/1085' class='clue_attribution'>Guardian Quiptic 1,085 by Carpathian</a>)</div>
+        </p>   
+
+        <p>
+          <img src='screenshots/letterselection009.png' width='600px'>
+          <div class='attribution'>(from <a href='https://www.theguardian.com/crosswords/quiptic/1094' class='clue_attribution'>Guardian Quiptic 1,094 by Anto</a>)</div>
+        </p>  
+    </div>
+  </div>
+
+  <div id='letteroperations' class='page main'>
+    <div class='flow'>
+        <h1>Letter operations</h1>
+
+          <p>
+            This section presents some of the key letter operations found in cryptic crosswords.
+          </p>
+
+        <h2>Insertions/containers</h2>
+
+          <p>
+            Letters or charade elements can be inserted into other charade elements. The exact position is not specified and needs to be found by the solver.
+          </p>
+
+          <p>
+             <img src='screenshots/letteroperations001.png' width='500px'>
+             <div class='attribution'>(from <a href='https://www.theguardian.com/crosswords/quiptic/1145' class='clue_attribution'>Guardian Quiptic 1,145 by Pasquale</a>)</div>
+          </p>
+
+          <p>
+             <img src='screenshots/letteroperations002.png' width='500px'>
+             <div class='attribution'>(from <a href='https://www.theguardian.com/crosswords/quiptic/1131' class='clue_attribution'>Guardian Quiptic 1,131 by Hectence</a>)</div>
+          </p>
+
+          <p>
+              In the second example, the idea is that CANE is "framing" the O.
+          </p>
+
+          <p>
+            An element "wearing" or "touring" or "blocking" another might also indicate a container &mdash; many other ideas are possible.
+          </p>
+
+        <h2>Reversals</h2>
+
+
+        <p>
+          Charade elements or entire clues may need to be reversed to find the solution.
+        </p>
+
+        <p>
+         <img src='screenshots/letteroperations003.png' width='400px'>
+         <div class='attribution'>(from <a href='https://www.theguardian.com/crosswords/quiptic/903' class='clue_attribution'>Guardian Quiptic 903 by Provis</a>)</div>
+        </p>
+
+        <p>
+         <img src='screenshots/letteroperations004.png' width='450px'>
+         <div class='attribution'>(from <a href='https://www.theguardian.com/crosswords/quiptic/1050' class='clue_attribution'>Guardian Quiptic 1,050 by Carpathian</a>)</div>
+        </p>
+
+        <p>
+          Some reversal indicators only apply to across clues or down clues. For example:
+        </p>
+
+        <p>
+         <img src='screenshots/letteroperations005.png' width='600px'>
+         <div class='attribution'>(from <a href='https://www.theguardian.com/crosswords/quiptic/948' class='clue_attribution'>Guardian Quiptic 948 by Hectence</a>)</div>
+        </p>
+
+        <p>
+          The idea of "going west" indicating a reversal only makes sense for across clues. Similarly:
+        </p>
+
+        <p>
+         <img src='screenshots/letteroperations006.png' width='425px'>
+         <div class='attribution'>(from <a href='https://www.theguardian.com/crosswords/quiptic/1079' class='clue_attribution'>Guardian Quiptic 1,079 by Carpathian</a>)</div>
+        </p>
+
+        <p>
+          The idea of "rising" only works as a reversal indicator for down clues.
+        </p>
+
+        <h2>Deletions</h2>
+
+        <p>
+          One or multiple letters can be deleted from a charade element.
+        </p>
+
+        <h3>First letter deletion</h3>
+
+        <p>
+          Often, the first letter of a charade element will be deleted.
+        </p>
+
+        <p>
+         <img src='screenshots/letteroperations007.png' width='425px'>
+         <div class='attribution'>(from <a href='https://www.theguardian.com/crosswords/quiptic/1151' class='clue_attribution'>Guardian Quiptic 1,151 by Matilda</a>)</div>
+        </p>
+
+        <p>
+          First letter deletion indicators often reference ideas such as being topless, starting late, and so on.
+        </p>
+
+        <h3>Last letter deletion</h3>
+
+          <p>
+            Similarly, the last letter of a charade element is often deleted.
+          </p>
+  
+          <p>
+           <img src='screenshots/letteroperations008.png' width='425px'>
+           <div class='attribution'>(from <a href='https://www.theguardian.com/crosswords/quiptic/1137' class='clue_attribution'>Guardian Quiptic 1,137 by Hectence</a>)</div>
+          </p>
+    
+        <h3>Both ends deletion</h3>
+
+        <p>
+          In some cases, both ends of a charade element may be deleted.
+        </p>
+
+        <p>
+           <img src='screenshots/letteroperations009.png' width='400px'>
+           <div class='attribution'>(from <a href='https://www.theguardian.com/crosswords/quiptic/900' class='clue_attribution'>Guardian Quiptic 900 by Hectence</a>)</div>
+        </p>
+
+        <p>
+          Both ends deletion indicators often reference the idea of being naked.
+        </p>
+
+        <h3>Non-specific deletion</h3>
+
+        <p>
+          Sometimes, letter(s) are deleted from within a charade element without specifying exactly where they appear.
+        </p>
+
+        <p>
+           <img src='screenshots/letteroperations010.png' width='400px'>
+           <div class='attribution'>(from <a href='https://www.theguardian.com/crosswords/quiptic/1127' class='clue_attribution'>Guardian Quiptic 1,127 by Carpathian</a>)</div>
+        </p>
+
+        <p>
+          Multiple letters can also be deleted.
+        </p>
+
+        <p>
+           <img src='screenshots/letteroperations011.png' width='600px'>
+           <div class='attribution'>(from <a href='https://www.theguardian.com/crosswords/quiptic/1115' class='clue_attribution'>Guardian Quiptic 1,115 by Pan</a>)</div>
+        </p>
+
+    </div>
+  </div>
+
+  <div id='positionalindicators' class='page main'>
+    <div class='flow'>
+        <h1>Positional indicators</h1>
+
+        <p>
+          Connector words can also specify in which order the charade elements should appear.
+        </p>
+
+        <p>
+           <img src='screenshots/positionalindicators001.png' width='650px'>
+           <div class='attribution'>(from <a href='https://www.theguardian.com/crosswords/quiptic/1085' class='clue_attribution'>Guardian Quiptic 1,085 by Carpathian</a>)</div>
+        </p>
+
+        <p>
+          Some positional indicators are only used in down or across clues, respectively.
+        </p>
+
+        <p>
+           <img src='screenshots/positionalindicators002.png' width='600px'>
+           <div class='attribution'>(from <a href='https://mpcryptics.blogspot.com/2020/09/cryptic-16.html' class='clue_attribution'>Cryptic 16 by MentalPlayground</a>)</div>
+        </p>
+
+        <p>
+          Here, the word "American" specifies that the solver should use an American spelling. The charade element ALLY is "supporting" LITER in the sense of being placed underneath it &mdash; this idea wouldn't apply to an across clue.
+        </p>
+      </div>
+    </div>
+
+    <div id='anagrams' class='page main'>
+      <div class='flow'>
+          <h1>Anagrams</h1>
+
+          <p>
+            In an anagram clue, the letters of a fodder are rearranged to find the solution. The anagram and the fodder are always identified by an anagram indicator, but to make things harder the indicator may be obscure or deliberately misleading.
+          </p>
+
+          <p>
+           <img src='screenshots/anagrams001.png' width='600px'>
+           <div class='attribution'>(from <a href='https://www.theguardian.com/crosswords/quiptic/1134' class='clue_attribution'>Guardian Quiptic 1,134 by Pan</a>)</div>
+          </p>
+
+          <p>
+            Anagram indicators can vary wildly, to the extent that a common trope among cryptic solvers is that "everything is an anagram indicator."
+          </p>
+
+          <p>
+            Anything suggesting motion, destruction, confusion, dishonesty, drunkenness, novelty, invention, freedom, unexpectedness, strangeness, wildness, etc., can be an anagram indicator. The conditional tense can also serve as an anagram indicator:
+          </p>
+
+          <p>
+           <img src='screenshots/anagrams002.png' width='550px'>
+           <div class='attribution'>(from <a href='https://www.theguardian.com/crosswords/quiptic/1154' class='clue_attribution'>Guardian Quiptic 1,154 by Pasquale</a>)</div>
+          </p>
+
+          <p>
+            Two of the most common and classical anagram indicators are perhaps two of the least intuitive. The words "out" and "about" are both very common anagram indicators ("out" can be understood to suggest confusion in the sense of "out of sorts" and "about" can be understood to suggest movement in the sense of "moving about").
+          </p>
+
+          <h2>Disjoint/indirect fodder</h2>
+
+          <p>
+            In some cases, you may need to assemble two different parts or perform an abbreviation to obtain the correct fodder for the anagram.
+          </p>
+
+          <p>
+           <img src='screenshots/anagrams003.png' width='700px'>
+           <div class='attribution'>(from <a href='https://www.theguardian.com/crosswords/quiptic/1151' class='clue_attribution'>Guardian Quiptic 1,151 by Matilda</a>)</div>
+          </p>
+
+          <p>
+            In the above example, the last letter of POPE is deleted to get POP, which is then combined with HIS HOLY to obtain the ten letters which collectively anagram to PHILOSOPHY.
+          </p>
+
+          <p>
+            Although simple abbreviations and letter selections may sometimes be incorporated into the fodder of an anagram, solvers will typically not be asked to think of a word association and then anagram it &mdash; such "indirect anagrams" are considered poor form.
+          </p>
+      </div>
+    </div>
+
+    <div id='hiddens' class='page main'>
+      <div class='flow'>
+          <h1>Hiddens</h1>
+
+          <p>
+            In a hidden clue, the solution is hidden directly within the surface.
+          </p>
+
+          <p>
+           <img src='screenshots/hiddens001.png' width='700px'>
+           <div class='attribution'>(from <a href='https://www.theguardian.com/crosswords/quiptic/917' class='clue_attribution'>Guardian Quiptic 917 by Anto</a>)</div>
+          </p>
+
+          <p>
+            Hidden indicators might mention hiding, wearing, containing, owning, etc. They might also reference the idea of selecting a sequence or subset.
+          </p>
+
+          <p>
+           <img src='screenshots/hiddens002.png' width='500px'>
+           <div class='attribution'>(from <a href='https://www.theguardian.com/crosswords/quiptic/904' class='clue_attribution'>Guardian Quiptic 904 by Moley</a>)</div>
+          </p>
+
+          <p>
+            Hiddens can also appear in reverse, in which case there will be both a hidden indicator and a reversal indicator.
+          </p>
+
+          <p>
+           <img src='screenshots/hiddens003.png' width='650px'>
+           <div class='attribution'>(from <a href='https://www.mycrossword.co.uk/cryptic/276' class='clue_attribution'>Cryptic Crossword No 276 by Liari</a>)</div>
+          </p>
+      </div>
+    </div>
+
+    <div id='acrostics' class='page main'>
+      <div class='flow'>
+          <h1>Acrostics</h1>
+
+          <p>
+            Acrostic clues construct the solution by selecting one letter from each word in the fodder, usually the first letter.
+          </p>
+
+          <p>
+           <img src='screenshots/acrostics001.png' width='650px'>
+           <div class='attribution'>(from <a href='https://www.theguardian.com/crosswords/quiptic/934' class='clue_attribution'>Guardian Quiptic 934 by Pan</a>)</div>
+          </p>
+
+          <p>
+           <img src='screenshots/acrostics002.png' width='650px'>
+           <div class='attribution'>(from <a href='https://www.theguardian.com/crosswords/quiptic/1102' class='clue_attribution'>Guardian Quiptic 1102 by Carpathian</a>)</div>
+          </p>
+
+          <p>
+            The acrostic indicator specifies which letter should be selected. Here is an example where the final letters are selected:
+          </p>
+
+          <p>
+           <img src='screenshots/acrostics003.png' width='650px'>
+           <div class='attribution'>(from <a href='https://squarepursuit.com/2021/04/29/sqp083-quiptic-3/' class='clue_attribution'>Quiptic #3 by Steve Mossberg</a>)</div>
+          </p>
+
+      </div>
+    </div>
+
+    <div id='homophones' class='page main'>
+      <div class='flow'>
+          <h1>Homophones</h1>
+
+          <p>
+            Homophone clues require the solver to find words that sound the same but are spelled differently.
+          </p>
+
+          <p>
+           <img src='screenshots/homophones001.png' width='500px'>
+           <div class='attribution'>(from <a href='https://www.theguardian.com/crosswords/quiptic/1070' class='clue_attribution'>Guardian Quiptic 1,070 by Carpathian</a>)</div>
+          </p>
+
+          <p>
+            Homophone indicators often use ideas relating to speech, hearing, communication, and so on.
+          </p>
+      </div>
+    </div>
+
+    <div id='ddefs' class='page main'>
+      <div class='flow'>
+          <h1>Double definitions</h1>
+
+          <p>
+            Instead of having a wordplay, double definitions have two separate definitions that lead to (different meanings of) the same word.
+          </p>
+
+          <p>
+           <img src='screenshots/ddefs001.png' width='450px'>
+           <div class='attribution'>(from <a href='https://www.theguardian.com/crosswords/quiptic/1130' class='clue_attribution'>Guardian Quiptic 1,130 by Matilda</a>)</div>
+          </p>
+
+          <p>
+              The two definitions can also have connecting words between them.
+          </p>
+
+          <p>
+           <img src='screenshots/ddefs002.png' width='500px'>
+           <div class='attribution'>(from <a href='https://www.theguardian.com/crosswords/quiptic/1153' class='clue_attribution'>Guardian Quiptic 1,153 by Hectence</a>)</div>
+          </p>
+      </div>
+    </div>
+
+    <div id='andlits' class='page main'>
+      <div class='flow'>
+          <h1>&lits</h1>
+
+          <p>
+            An &lit is a clue with an alternative cryptic structure where the surface is simultaneously the wordplay and the definition. The name is an abbreviation of "and literally so."
+          </p>
+
+          <p>
+            Here is an example of an &lit charade:
+          </p>
+
+          <p>
+           <img src='screenshots/andlits001.png' width='500px'>
+           <div class='attribution'>(from <a href='https://liaricryptics.blogspot.com/2022/02/team-spirit.html' class='clue_attribution'>Team Spirit by Liari and Coniferous</a>)</div>
+          </p>
+
+          <p>
+            This type of clue can be tricky because the non-standard cryptic structure may be unexpected and is not always indicated. Some publications, especially of American-style cryptics, identify &lits with a question mark or an exclamation mark.
+          </p>
+
+      </div>
+    </div>
+
+    <div id='liftandseparate' class='page main'>
+      <div class='flow'>
+      
+      <h1>Lift and separate</h1>
+
+      <p>
+        In some clues, the spacing in the surface is deliberately misleading. The solver needs to add space(s) to separate a single word into multiple parts, then evaluate these parts separately &mdash; this is known as lift-and-separate (L&S).
+      </p>
+
+      <p>
+        <img src='screenshots/liftandseparate001.png' width='500px'>
+        <div class='attribution'>(from <a href='https://www.theguardian.com/crosswords/quiptic/982' class='clue_attribution'>Guardian Quiptic 982 by Matilda</a>)</div>
+      </p>
+
+      <p>
+        In the above clue, the solver needs to separate INDEED into IN and DEED, then interpret IN as a container indicator.
+      </p>
+
+      </div>
+    </div>
+
+    <div id='spoonerisms' class='page main'>
+      <div class='flow'>
+
+      <h1>Spoonerisms</h1>
+
+      <p>
+        A spoonerism is a phrase where the starting sounds of some words have been switched. It is named after the Reverend Spooner, an academic who was said to frequently make such mistakes in speech.
+      </p>
+
+      <p>
+        The classical example of a spoonerism is as follows:
+      </p>
+
+      <div class='textexample'>
+          Three cheers for our <span class='red'><b>qu</b></span>eer old <span class='purple'><b>de</b></span>an!
+      </div>
+
+      <p>
+        Instead of:
+      </p>
+
+      <div class='textexample'>
+          Three cheers for our <span class='purple'><b>de</b></span>ar old <span class='red'><b>qu</b></span>een!
+      </div>
+
+      <p>
+        Spoonerisms are sometimes used in cryptic clues. This is always indicated by "Spooner" or "the Reverend." For example:
+      </p>
+
+      <p>
+       <img src='screenshots/spoonerisms001.png' width='650px'>
+       <div class='attribution'>(from <a href='https://mpcryptics.blogspot.com/2020/09/cryptic-18.html' class='clue_attribution'>Cryptic 18 by MentalPlayground</a>)</div>
+      </p>
+
+      </div>
+    </div>
+
+    <div id='cycling' class='page main'>
+      <div class='flow'>
+        <h1>Cycling</h1>
+
+        <p>
+          Cycling a sequence of letters means shifting them while preserving their order. The letters that fall off the front are placed at the back. For example:
+        </p>
+
+        <p>
+          <img src='screenshots/cycling001.png' width='400px'><span class='attribution'>
+        </p>
+
+        <p>
+          Note that backwards and forwards cycling are equivalent if the number of steps is unspecified.
+        </p>
+
+        <p>
+          Here is an example of a cycling clue:
+        </p>
+
+        <p>
+          <img src='screenshots/cycling002.png' width='600px'>
+          <div class='attribution'>(from <a href='https://puzzles.independent.co.uk/games/cryptic-crossword-independent' class='clue_attribution'>Independent 10,926 by Bluth</a>)</div>
+        </p>
+
+        <p>
+          Here, the word entrance is used in the sense of charm (en-trance) rather than in the sense of entry.
+        </p>
+
+      </div>
+    </div>
+
+    <div id='lettershifting' class='page main'>
+      <div class='flow'>
+        <h1>Letter shifting</h1>
+
+        <p>
+          In a letter shifting clue, one or several letters are shifted (upwards or downwards, to the left or to the right) to produce a new word.
+        </p>
+
+        <p>
+          <img src='screenshots/lettershifting001.png' width='500px'>
+          <div class='attribution'>(from <a href='https://www.theguardian.com/crosswords/quiptic/1052' class='clue_attribution'>Guardian Quiptic 1,052 by Anto</a>)</div>
+        </p>
+
+        <p>
+          Letter shifting indicators typically specify which direction the letter should be shifted, but not how far.
+        </p>
+      </div>
+    </div>
+
+    <div id='swapulation' class='page main'>
+      <div class='flow'>
+        <h1>Swapulation</h1>
+
+        <p>
+          In a swapulation (substitution) clue, one or several letters are replaced by other letters.
+        </p>
+
+        <p>
+          <img src='screenshots/swapulation001.png' width='550px'>
+          <div class='attribution'>(from <a href='https://www.theguardian.com/crosswords/quiptic/939' class='clue_attribution'>Guardian Quiptic 939 by Anto</a>)</div>
+        </p>
+
+        <p>
+          Here's an example where multiple letters are substituted for one:
+        </p>
+
+        <p>
+          <img src='screenshots/swapulation002.png' width='650px'>
+          <div class='attribution'>(from <a href='https://www.theguardian.com/crosswords/quiptic/1062' class='clue_attribution'>Guardian Quiptic 1,062 by Anto</a>)</div>
+        </p>
+
+        <p>
+          Sometimes, a specific type of swapulation is indicated.
+        </p>
+
+        <p>
+          <img src='screenshots/swapulation003.png' width='725px'>
+          <div class='attribution'>(from <a href='https://www.theguardian.com/crosswords/quiptic/997' class='clue_attribution'>Guardian Quiptic 997 by Matilda</a>)</div>
+        </p>
+
+        <p>
+          In the above example, the idea of switching sides specifically refers to swapping the letters <span class='blue'>L</span> and <span class='red'>R</span>, which stand for the two sides of <span class='blue'>left</span> and <span class='red'>right</span>, respectively. This transforms <span class='red'>R</span>OYALTY into <span class='blue'>L</span>OYALTY. The word "starting" disambiguates the clue by specifying that the R in ROYALTY (the starting letter) should be swapped, but the L should not.
+        </p>
+
+        <p>
+          Other examples of specific swapulations include swapping north/south poles (N&harr;S), hot/cold taps (H&harr;C), and Roman numeral arithmetic (V&rarr;D as a one-hundred-fold increase, for example). Original ideas are also possible.
+        </p>
+
+      </div>
+    </div>
+
+    <div id='cdefs' class='page main'>
+      <div class='flow'>
+        <h1>Cryptic definitions</h1>
+
+        <p>
+          In a cryptic definition clue, the whole surface forms a single definition intended to be misleading, often in a humorous way. 
+        </p>
+
+        <p>
+          <img src='screenshots/cdefs001.png' width='600px'>
+          <div class='attribution'>(from <a href='https://www.theguardian.com/crosswords/quiptic/1113' class='clue_attribution'>Guardian Quiptic 1,113 by Carpathian</a>)</div>
+        </p> 
+
+        <p>
+          In the above example, the solver needs to realise that the "viewer" refers to an eye rather than a person.
+        </p>
+
+        <p>
+          Cryptic definitions can trip up solvers who are looking to separate the clue into wordplay and definition.
+        </p>
+
+        <p>
+          <img src='screenshots/cdefs002.png' width='600px'>
+          <div class='attribution'>(from <a href='https://www.theguardian.com/crosswords/quiptic/1110' class='clue_attribution'>Guardian Quiptic 1,110 by Anto</a>)</div>
+        </p> 
+
+        <p>
+          Cryptic definitions often contain two ideas, so there is some ambiguity/overlap between cryptic definitions and double definitions.
+        </p>
+
+      </div>
+    </div>
+
+    <div id='tdefs' class='page main'>
+      <div class='flow'>
+        <h1>Triple definitions & variants</h1>
+
+        <p>
+          A triple definition clue gives three definitions of the target word. This can surprise solvers who are expecting at most two.
+        </p>
+
+        <p>
+          <img src='screenshots/tdefs001.png' width='500px'>
+          <div class='attribution'>(from <a href='https://www.theguardian.com/crosswords/quiptic/1152' class='clue_attribution'>Guardian Quiptic 1,152 by Anto</a>)</div>
+        </p> 
+
+        <p>
+          Although less common, clues that can be parsed into two wordplays and a definition or two definitions and a wordplay are occasionally also encountered.
+        </p>
+
+        <p>
+          Similarly, quadruple definitions and higher variants and combinations are possible and fun to come across.
+        </p>
+
+      </div>
+    </div>
+
+    <div id='revenge' class='page main'>
+      <div class='flow'>
+        <h1>Reverse engineering (revenge)</h1>
+
+        <p>
+          In a reverse engineering clue, the solution itself is a cryptic clue for part of the surface. Such clues are called "revenge clues" by the crossword community.
+        </p>
+
+        <p>
+          <img src='screenshots/revenge001.png' width='650px'>
+          <div class='attribution'>(from <a href='https://mpcryptics.blogspot.com/2020/08/cryptic-8.html' class='clue_attribution'>Cryptic 8 by MentalPlayground</a>)</div>
+        </p>
+
+        <p>
+          In the above example, MINE CASH is an anagram of MACHINES, but the anagram indicator is part of the solution rather than the surface.
+        </p>        
+
+      </div>
+    </div>
+
+    <div id='letterbanks' class='page main'>
+      <div class='flow'>
+        <h1>Letterbanks</h1>
+
+        <p>
+          A letterbank clue specifies a bank of letters that may be repeatedly reused in any order to construct the solution.
+        </p>
+
+        <p>
+          <img src='screenshots/letterbanks001.png' width='750px'>
+          <div class='attribution'>(from <a href='https://squarepursuit.com/2021/10/11/sqp116-quiptic-14/' class='clue_attribution'>Quiptic 14 by Steve Mossberg</a>)</div>
+        </p> 
+
+        <p>
+          In the above example, the solution MWAHAHAHA consists of the letters of WHAM, rearranged and repeated as required.
+        </p>
+
+        <p>
+          Letterbank indicators typically reference ideas such as spreading and reusing small pieces.
+        </p>
+      </div>
+    </div>
+
+    <div id='transformations' class='page main'>
+      <div class='flow'>
+        <h1>Transformations</h1>
+
+        <p>
+          The solution of a transformation clue describes how a word in the surface may be transformed into another. This is similar in spirit to revenge clues.
+        </p>
+
+        <p>
+          <img src='screenshots/transformations001.png' width='600px'>
+          <div class='attribution'>(from <a href='https://www.theguardian.com/crosswords/quiptic/1101' class='clue_attribution'>Guardian Quiptic 1,101 by Anto</a>)</div>
+        </p> 
+
+        <p>
+          In the above example, the solution NOTCH should be understood as NO 'TCH'. The word FEED is obtained from FETCHED by deleting the TCH.
+        </p>
+
+        <p>
+          The transformation indicator is often just the word "to." 
+        </p>
+
+      </div>
+    </div>
+
+    <div id='originalclues' class='page main'>
+      <div class='flow'>
+        <h1>Original clues</h1>
+
+        <p>
+          Cryptic crossword setters can also write clues based on unique and original ideas that cannot be classified into a well-established category. Unique ideas may add a twist to a known device or ask the solver to do something completely new.
+        </p>
+
+        <p>
+          Here is an example of a unique twist on a hidden:
+        </p>
+
+        <p>
+          <img src='screenshots/original001.png' width='550px'>
+          <div class='attribution'>(from <a href='https://www.theguardian.com/crosswords/cryptic/28696' class='clue_attribution'>Guardian Cryptic 28,696 by Pangakupu</a>)</div>
+        </p>
+
+        <p>
+          The hidden is found in "<span class='red'>penal<span class='purple'>ty pe</span>nalty</span>."
+        </p>
+
+        <p>
+          As an example of a non-standard cryptic device, consider the following "Venn diagram" or "intersection" idea:
+        </p>
+
+        <p>
+          <img src='screenshots/original002.png' width='650px'>
+          <div class='attribution'>(from If the Apocalypse Comes, Beep Me by Elder)</div>
+        </p>
+
+        <p>
+          The idea is to select the letters that appear in both THIEF and BUTCHER, giving THE.
+        </p>
+
+      </div>
+    </div>
+
+  </body>
+</html>
