@@ -1,0 +1,94 @@
+.sidenav {
+  height: 100%;
+  width: 300px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  margin-left: 50px;
+
+
+  font-family: 'Roboto Slab', serif;
+  font-size:  18px;
+}
+
+.main {
+  margin-left:  350px;
+  font-family: 'Roboto Slab', serif;
+  font-size:  20px;
+}
+
+.author {
+  font-size:  12px;
+}
+
+.flow {
+	width:  90%;
+  margin: auto;
+}
+
+.attribution {
+  margin-top:  30px;
+	font-size:  16px;
+  text-align:  center;
+}
+
+.author {
+  margin-top: 30px;
+}
+
+.page {
+  display: none;
+}
+
+.clue_attribution {
+  text-decoration:  none;
+  color:  RoyalBlue;
+}
+
+.imagecontainer {
+  width: 60%;
+  margin:  auto;
+}
+
+.clue_attribution:hover {
+  text-decoration:  underline;
+  cursor: pointer;
+}
+
+.blue {
+  color: blue;
+
+}
+.green {
+  color:  green;
+}
+.red {
+ color:  red;
+}
+.purple {
+  color:  purple;
+}
+.orange {
+  color:  chocolate;
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.navi_link {
+  text-decoration:  none;
+  color:  RoyalBlue; 
+}
+.navi_link:hover {
+  text-decoration:  underline;
+  cursor: pointer;
+}
+
+.textexample {
+  text-align:  center;
+}
